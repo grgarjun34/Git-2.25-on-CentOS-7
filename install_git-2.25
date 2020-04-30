@@ -1,0 +1,39 @@
+How to install Git 2.25 on CentOS 7
+
+This tutorial will help you to install git 2.25 on CentOS 7 Operating System using the source code. 
+
+Step 1 - Prerequisities
+
+     Before installing Git from source code, make sure you have already installed the required packages on your system.
+If not use the following command to install the required packages.
+	$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+	$ sudo yum install gcc perl-ExtUtils-MakeMaker
+
+Step 2 - Install Git
+
+     Download latest Git 2.25 using following command
+	$ cd /tmp
+	$ sudo wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.25.0.tar.gz
+
+     Extract the Git tar file
+	$ tar xzf git-2.25.0.tar.gz
+
+     Compile the Git source code
+	$ cd git-2.25.0
+	$ sudo make prefix=/usr/local/git all
+	$ sudo make prefix=/usr/local/git install
+
+Step 3 - Setup Environment
+
+     After installation of git client. Now you just need to set binary in the system environment. Set the PATH variable 
+with newly installed git binary in /etc/bashrc by executing the below command. Also, reload the changes in the current 
+environment. "Please execute below command as root user."
+	$ sudo echo 'export PATH=/usr/local/git/bin:$PATH' >> /etc/bashrc
+	$ sudo source /etc/bashrc
+
+     After completing the steps. Let's check the Git version
+	$ git --version
+	git version 2.25.0
+
+Git has been successfully installed on your system.
+
